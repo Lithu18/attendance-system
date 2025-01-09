@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <title>Attendance System - Home</title>
+</head>
+<body>
+  <div class="home-container">
+    <div class="content">
+      <h1 id="welcomeMessage">Welcome!</h1>
+      <p>Choose an option below to get started</p>
+      <button id="markAttendanceButton">Mark Attendance</button>
+      <button id="viewAttendanceButton">View Attendance</button>
+      <button id="logoutButton">Logout</button>
+    </div>
+  </div>
+  <script>
+    const username = localStorage.getItem("username");
+
+    // Update welcome message with the username
+    if (username) {
+      document.getElementById("welcomeMessage").textContent = `Welcome, ${username}!`;
+    } else {
+      window.location.href = "index.html"; // Redirect to login if no username
+    }
+
+    document.getElementById("markAttendanceButton").addEventListener("click", () => {
+      alert("Navigating to Mark Attendance Page...");
+      // Navigate to the relevant page or functionality
+    });
+
+    document.getElementById("viewAttendanceButton").addEventListener("click", () => {
+      alert("Navigating to View Attendance Page...");
+      // Navigate to the relevant page or functionality
+    });
+
+    document.getElementById("logoutButton").addEventListener("click", () => {
+      localStorage.removeItem("token");
+      localStorage.removeItem("username"); // Clear username on logout
+      window.location.href = "index.html";
+    });
+  </script>
+</body>
+</html>
